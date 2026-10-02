@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c32">
+  <meta name="description" content="تقرير في الدراسات الاجتماعية عن حصن الأسود في بلدة مقنيات بولاية عبري في محافظة الظاهرة.">
+  <title>حصن الأسود في بلدة مقنيات | تقرير الدراسات الاجتماعية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="1.png">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17241f;
+      --muted: #69766d;
+      --forest: #19382f;
+      --leaf: #54765e;
+      --rust: #9f6547;
+      --brass: #c2a06c;
+      --paper: #fffefa;
+      --canvas: #eef0e9;
+      --line: #d8ded5;
+      --soft-green: #edf1e9;
+      --serif: "Noto Naskh Arabic", Georgia, serif;
+      --sans: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--canvas);
+      background-image: radial-gradient(#d0d8ce 0.55px, transparent 0.55px);
+      background-size: 22px 22px;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.95;
+    }
+
+    a { color: inherit; }
+    .topbar {
+      min-height: 64px;
+      padding: 10px max(24px, calc((100vw - 1220px) / 2));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--ink);
+      background: var(--paper);
+      border-bottom: 1px solid var(--brass);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; }
+    .brand-mark {
+      width: auto;
+      min-width: 74px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      padding: 0 13px;
+      border: 1px solid var(--brass);
+      color: var(--forest);
+      background: transparent;
+      font: 600 14px var(--sans);
+      line-height: 1;
+      cursor: pointer;
+    }
+    .brand-mark:hover { color: var(--rust); border-color: var(--rust); }
+    .brand-mark:focus-visible, .dialog-close:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .topbar-note { color: var(--muted); font-size: 13px; }
+    .topbar .print-button { width: auto; min-height: 40px; padding: 7px 16px; border-color: var(--forest); color: #fff; background: var(--forest); }
+    .designer-dialog {
+      width: min(820px, calc(100% - 32px));
+      max-width: none;
+      max-height: min(90vh, 760px);
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid var(--brass);
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 28px 90px #0d211c55;
+    }
+    .designer-dialog::backdrop { background: #10241eb3; backdrop-filter: blur(4px); }
+    .designer-shell { min-height: 500px; display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); }
+    .designer-identity {
+      min-width: 0;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      color: #fffdf5;
+      background: var(--forest);
+    }
+    .designer-identity::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid #c2a06c75;
+      pointer-events: none;
+    }
+    .designer-identity-main, .designer-school { position: relative; z-index: 1; }
+    .designer-identity-main { margin-block: auto; }
+    .designer-name { margin: 0; color: #fffdf5; font: 700 27px/1.7 var(--serif); }
+    .designer-school { margin: 0; padding-top: 14px; border-top: 1px solid #ffffff3d; color: #d8e1d8; font-size: 13px; line-height: 1.8; }
+    .designer-content { min-width: 0; padding: 54px 38px 30px; display: flex; flex-direction: column; position: relative; }
+    .dialog-close {
+      width: 36px;
+      height: 36px;
+      position: absolute;
+      inset-block-start: 14px;
+      inset-inline-end: 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--forest);
+      background: transparent;
+      font: 400 23px/1 var(--sans);
+      cursor: pointer;
+    }
+    .dialog-close:hover { border-color: var(--rust); color: var(--rust); }
+    .dialog-close:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .designer-project-title { margin: 0; color: var(--forest); font: 700 27px/1.55 var(--serif); }
+    .designer-facts { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .designer-fact { min-width: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+    .designer-fact dt { color: var(--muted); font-size: 11px; }
+    .designer-fact dd { margin: 2px 0 0; color: var(--forest); font-size: 13px; font-weight: 600; line-height: 1.7; }
+    .designer-content-footer { margin-top: auto; padding-top: 18px; color: var(--muted); font-size: 11px; }
+
+    .page-wrap { width: min(1220px, calc(100% - 48px)); margin: 34px auto 70px; }
+    .cover {
+      min-height: 470px;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      overflow: hidden;
+      position: relative;
+      color: #fffdf5;
+      background: var(--forest);
+      box-shadow: 0 22px 60px #182b251c;
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid #c2a06c75;
+      pointer-events: none;
+    }
+    .cover-copy {
+      padding: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      isolation: isolate;
+    }
+    .cover-copy::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .16;
+      background-image: repeating-linear-gradient(135deg, transparent 0 34px, #b7c9ae 35px 36px, transparent 37px 72px);
+      mask-image: linear-gradient(270deg, #000, transparent 78%);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: #d7c39e;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--brass); }
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .cover-subtitle { margin: 17px 0 31px; color: #d8e1d8; font-size: 17px; }
+    .student-line { width: min(100%, 430px); padding-top: 15px; border-top: 1px solid #ffffff3d; color: #f3f4ea; font-size: 14px; }
+    .student-meta { margin-top: 4px; color: #d8e1d8; font-size: 13px; line-height: 1.7; }
+    .cover-image { min-height: 470px; position: relative; background: #55694e; }
+    .cover-image img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 43%; }
+    .image-shade { position: absolute; inset: 45% 0 0; background: linear-gradient(0deg, #10271ee8, transparent); }
+    .image-caption { position: absolute; inset-inline: 22px; bottom: 18px; color: #fff; font-size: 12px; line-height: 1.7; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 0 36px;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--brass);
+      background: var(--paper);
+    }
+    .fact { padding: 17px 22px 19px; border-inline-start: 1px solid var(--line); }
+    .fact:last-child { border-inline-start: 0; }
+    .fact-label { display: block; color: var(--muted); font-size: 12px; }
+    .fact-value { display: block; margin-top: 2px; color: var(--forest); font-size: 17px; font-weight: 700; }
+
+    .content-layout { display: grid; grid-template-columns: minmax(0, 1fr) 258px; gap: 26px; align-items: start; }
+    .article { min-width: 0; padding: 58px 62px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 14px 38px #1b33250a; }
+    .article-kicker { margin: 0 0 8px; color: var(--rust); font-size: 13px; font-weight: 700; }
+    .article h2 { margin: 0 0 23px; color: var(--forest); font-family: var(--serif); font-size: 32px; line-height: 1.5; }
+    .article h3 { margin: 0 0 17px; color: var(--forest); font-family: var(--serif); font-size: 25px; line-height: 1.6; }
+    .article p { margin: 0 0 17px; }
+    .article p:last-child { margin-bottom: 0; }
+    .article section { padding: 35px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 22px; }
+    .article section:first-of-type { padding-top: 8px; }
+    .article section:last-of-type { padding-bottom: 0; border-bottom: 0; }
+    .section-number { width: 35px; height: 35px; display: inline-grid; place-items: center; margin-inline-end: 11px; border: 1px solid var(--brass); color: var(--rust); font-family: var(--sans); font-size: 12px; vertical-align: 4px; }
+    .audio-block {
+      margin: 12px 0 18px;
+      padding: 12px 14px 10px;
+      border: 1px solid var(--line);
+      background: #f7f9f4;
+      border-radius: 12px;
+    }
+    .audio-block audio {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      margin: 0 auto;
+      outline: none;
+    }
+    .audio-hint {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .quote-note {
+      margin: 21px 0;
+      padding: 16px 20px;
+      border-inline-start: 3px solid var(--rust);
+      color: #355344;
+      background: var(--soft-green);
+      font-size: 15px;
+    }
+    .tower-list { margin: 8px 0 19px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .tower-list li { padding: 4px 12px; border: 1px solid #cbd8cb; color: var(--forest); background: #f5f8f2; font-size: 14px; }
+    .dimensions-table { width: 100%; margin: 20px 0 12px; border-collapse: collapse; table-layout: fixed; font-size: 14px; line-height: 1.7; }
+    
+    .dimensions-table th, .dimensions-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: top; }
+    .dimensions-table th { color: var(--forest); background: var(--soft-green); font-weight: 700; }
+    .dimensions-table tbody tr:nth-child(even) { background: #fafaf6; }
+    .sources a { color: var(--forest); text-decoration-color: var(--brass); text-underline-offset: 3px; }
+    .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin: 15px 0 0; padding: 0; list-style: none; counter-reset: source; }
+    .sources li { counter-increment: source; display: flex; gap: 9px; color: #405148; font-size: 14px; }
+    .sources li::before { content: "0" counter(source); color: var(--rust); font-weight: 700; }
+
+    .side-rail { position: sticky; top: 22px; }
+    .rail-block { padding: 21px; background: var(--paper); border: 1px solid var(--line); border-top: 2px solid var(--brass); }
+    .rail-block + .rail-block { margin-top: 13px; }
+    .rail-title { margin: 0 0 12px; color: var(--forest); font-size: 13px; font-weight: 700; }
+    .toc { display: grid; gap: 2px; }
+    .toc a { padding: 7px 10px; border-inline-start: 2px solid transparent; color: #5c6960; font-size: 13px; line-height: 1.6; text-decoration: none; transition: color .18s ease, background .18s ease, border-color .18s ease; }
+    .toc a:hover, .toc a[aria-current="location"] { border-inline-start-color: var(--rust); color: var(--forest); background: #f1f4ed; }
+    .print-button {
+      width: 100%;
+      min-height: 46px;
+      padding: 9px 12px;
+      border: 1px solid var(--forest);
+      color: white;
+      background: var(--forest);
+      font: 600 14px var(--sans);
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease;
+    }
+    .print-button:hover { color: var(--forest); background: white; }
+    .rail-meta { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    footer { padding: 24px 10px 0; color: var(--muted); text-align: center; font-size: 12px; }
+    footer a { color: var(--forest); }
+
+    @media (max-width: 860px) {
+      .content-layout { grid-template-columns: minmax(0, 1fr) 220px; gap: 16px; }
+      .cover { grid-template-columns: 1fr .76fr; }
+      .cover-copy { padding: 38px; }
+      h1 { font-size: 52px; }
+      .article { padding: 38px 34px; }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 15px; }
+      .designer-dialog { width: min(520px, calc(100% - 24px)); max-height: 92vh; }
+      .designer-shell { min-height: 0; grid-template-columns: 1fr; }
+      .designer-identity { min-height: 250px; padding: 25px; gap: 14px; }
+      .designer-identity::after { inset: 9px; }
+      .designer-identity-main { margin-block: 8px; }
+      .designer-name { font-size: 24px; }
+      .designer-content { padding: 53px 23px 23px; }
+      .designer-project-title { font-size: 24px; }
+      .designer-facts { gap: 0 12px; }
+      .designer-fact dd { overflow-wrap: anywhere; }
+      .topbar { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; padding: 9px 18px; }
+      .brand { grid-column: 1; grid-row: 1; }
+      .topbar .print-button { grid-column: 2; grid-row: 1; }
+      .topbar-note { display: block; grid-column: 1 / -1; grid-row: 2; padding-bottom: 2px; font-size: 11px; line-height: 1.6; }
+      .page-wrap { width: min(100% - 28px, 540px); margin: 15px auto 42px; }
+      .cover { display: flex; flex-direction: column; }
+      .cover-copy { min-height: 300px; padding: 31px 25px; }
+      .cover-image { min-height: 230px; order: 2; }
+      .cover::after { inset: 9px; }
+      h1 { font-size: 43px; }
+      .cover-subtitle { margin-bottom: 19px; font-size: 15px; }
+      .student-line { font-size: 13px; }
+      .facts { grid-template-columns: 1fr; }
+      .fact { padding: 11px 17px; border-inline-start: 0; border-bottom: 1px solid var(--line); }
+      .fact:last-child { border-bottom: 0; }
+      .fact-value { font-size: 15px; }
+      .content-layout { display: flex; flex-direction: column; }
+      .article { width: 100%; padding: 29px 22px; }
+      .article h2 { font-size: 27px; }
+      .article h3 { font-size: 22px; }
+      .article section { padding: 29px 0; }
+      .section-number { width: 30px; height: 30px; margin-inline-end: 7px; }
+      .dimensions-table { font-size: 12px; }
+      .dimensions-table th, .dimensions-table td { padding: 8px 7px; }
+      .side-rail { width: 100%; position: static; order: -1; }
+      .side-rail .rail-block:first-child { padding: 13px 15px; }
+      .toc { grid-template-columns: 1fr 1fr; column-gap: 5px; }
+      .sources { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      @page { size: A4; margin: 17mm 15mm; }
+      body { background: white; color: #111; font-size: 11pt; line-height: 1.8; }
+      .topbar, .side-rail, footer { display: none !important; }
+      .page-wrap { width: 100%; margin: 0; }
+      .cover { min-height: 0; grid-template-columns: 1fr 34%; color: #fff; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .cover-copy { padding: 25px; }
+      .cover-image { min-height: 230px; }
+      h1 { font-size: 32pt; }
+      .facts { margin-bottom: 13px; }
+      .fact { padding: 9px 12px; }
+      .content-layout { display: block; }
+      .article { padding: 24px 28px; border: 0; }
+      .article section { break-inside: avoid; }
+      .article h2, .article h3 { break-after: avoid; }
+      a { text-decoration: none; }
+      .image-caption { font-size: 8pt; }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="topbar">
+    <div class="brand"><button class="brand-mark" id="designer-open" type="button" aria-haspopup="dialog" aria-controls="designer-dialog">المصمم</button></div>
+    <span class="topbar-note">حصن الأسود</span>
+    <button class="print-button" type="button" onclick="window.print()" aria-label="طباعة التقرير">طباعة التقرير</button>
+  </header>
+
+  <dialog class="designer-dialog" id="designer-dialog" aria-labelledby="designer-title">
+    <div class="designer-shell">
+      <section class="designer-identity" aria-label="بيانات المصمم">
+        <div class="designer-identity-main">
+          <h2 class="designer-name" id="designer-title">عبدالله بن سالم<br>بن سيف السليماني</h2>
+        </div>
+        <p class="designer-school">طالب الصف 12/1<br>مدرسة أبو عبيدة للتعليم الأساسي (10-12)</p>
+      </section>
+      <section class="designer-content" aria-label="تفاصيل التقرير">
+        <button class="dialog-close" id="designer-close" type="button" aria-label="إغلاق نافذة المصمم">&times;</button>
+        <h3 class="designer-project-title">حصن الأسود<br>في بلدة مقنيات</h3>
+        <dl class="designer-facts">
+          <div class="designer-fact"><dt>المادة</dt><dd>الدراسات الاجتماعية</dd></div>
+          <div class="designer-fact"><dt>الصف</dt><dd>12/1</dd></div>
+          <div class="designer-fact"><dt>المدرسة</dt><dd>أبو عبيدة للتعليم الأساسي (10-12)</dd></div>
+          <div class="designer-fact"><dt>تاريخ التقرير</dt><dd>23 سبتمبر 2026م</dd></div>
+        </dl>
+        <div class="designer-content-footer">حصن الأسود</div>
+      </section>
+    </div>
+  </dialog>
+
+  <main class="page-wrap">
+    <section class="cover" aria-labelledby="report-title">
+      <div class="cover-copy">
+        <span class="eyebrow">تقرير في الدراسات الاجتماعية</span>
+        <h1 id="report-title">حصن الأسود<br>في بلدة مقنيات</h1>
+        <p class="cover-subtitle">حكاية حصنٍ ارتبط بتاريخ النباهنة وذاكرة المكان</p>
+        <div class="student-line">إعداد الطالب: عبدالله بن سالم بن سيف السليماني</div>
+        <div class="student-meta">الصف: 12/1 · المدرسة: أبو عبيدة للتعليم الأساسي (10-12)</div>
+      </div>
+      <div class="cover-image">
+        <img src="1.png" alt="صورة الغلاف المرفقة باسم 1.jpg" loading="eager">
+        <div class="image-shade" aria-hidden="true"></div>
+        <div class="image-caption"> حصن الأسود . مقنيات </div>
+      </div>
+    </section>
+
+    <section class="facts" aria-label="بيانات التقرير">
+      <div class="fact"><span class="fact-label">الموقع</span><span class="fact-value">مقنيات · ولاية عبري</span></div>
+      <div class="fact"><span class="fact-label">التاريخ التقريبي</span><span class="fact-value">972هـ · نحو 1564م</span></div>
+      <div class="fact"><span class="fact-label">تاريخ كتابة التقرير</span><span class="fact-value">23 سبتمبر 2026م</span></div>
+    </section>
+
+    <div class="content-layout">
+      <article class="article">
+        <section id="introduction" aria-labelledby="introduction-title">
+          <h2 id="introduction-title">المقدمة</h2>
+          <p>تتميز سلطنة عُمان بتاريخ عريق وتراث معماري متنوع يعكس خبرة العمانيين في بناء القلاع والحصون وتوظيفها لحماية المدن والواحات وتنظيم شؤون المجتمع. وتنتشر هذه المعالم في مختلف محافظات السلطنة، شاهدةً على مراحل مهمة من التاريخ العُماني وعلى ما امتاز به الإنسان العُماني من قدرة على الاستفادة من البيئة المحلية في البناء والتحصين.</p>
+          <p>ويُعد حصن الأسود في بلدة مقنيات بولاية عبري في محافظة الظاهرة من أبرز المعالم التاريخية في المنطقة. وقد ارتبط الحصن بتاريخ مقنيات ودورها السياسي في عهد النباهنة، كما يتميز بموقع مرتفع وتخطيط دفاعي وأبراج جعلته من المعالم المهمة في تاريخ المنطقة.</p>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالمقدمة</p>
+            <audio controls preload="none" src="audio/1.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="location" aria-labelledby="location-title">
+          <h3 id="location-title"><span class="section-number">01</span>الموقع والأهمية الاستراتيجية</h3>
+          <p>يقع حصن الأسود في بلدة مقنيات بولاية عبري في محافظة الظاهرة، في موضع مرتفع على نتوء صخري يطل على المنطقة المحيطة وبساتين النخيل. ويقع الحصن في منطقة وادٍ تحيط بها الجبال، وهو ما منحه موقعاً مناسباً للمراقبة والسيطرة على الممرات والطرق المؤدية إلى البلدة.</p>
+          <p>وتقع مقنيات على مسافة تقارب 50 كيلومتراً إلى الشمال الشرقي من مركز ولاية عبري، وفقاً للمادة المنشورة عن الحصن. ويقع الحصن بمحاذاة الوادي وبساتين النخيل، فتجتمع في موقعه قيمة الإشراف الدفاعي مع صلته بمصادر المياه والزراعة في البلدة.</p>
+          <p>وقد أسهم ارتفاع الحصن وطبيعة الطريق المؤدي إلى مدخله في تعزيز قدرته الدفاعية؛ إذ كان الطريق متعرجاً وضيقاً في بعض المواضع، كما توجد منحدرات طبيعية حول أجزاء من الموقع، مما جعل الوصول إلى المدخل أكثر صعوبة على المهاجمين. ولذلك لم يكن الحصن مجرد مبنى للسكن، بل كان تحصيناً دفاعياً ذا أهمية في حماية المنطقة.</p>
+          <div class="quote-note">اختيار الموقع المرتفع والتضاريس المحيطة جعلا من المكان نقطة مراقبة وحماية للبلدة.</div>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالفترة 1</p>
+            <audio controls preload="none" src="audio/2.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="history" aria-labelledby="history-title">
+          <h3 id="history-title"><span class="section-number">02</span>تاريخ الحصن وتسميته</h3>
+          <p>يرتبط حصن الأسود بتاريخ الدولة النبهانية في عُمان. يعود إلى سنة 972هـ، الموافق تقريباً 1564م، في عهد الملك فلاح بن محسن النبهاني، الذي اتخذ من مقنيات مقراً لحكمه وجعلها مركزاً مهماً للنباهنة في المنطقة.</p>
+          <p>تسمية الحصن بـ«حصن الأسود» ارتبطت باسم الأسود بن فلاح، ابن الملك فلاح بن محسن. وبذلك فإن تاريخ الحصن يرتبط ارتباطاً وثيقاً بتاريخ مقنيات ودورها في تلك المرحلة من التاريخ العُماني.</p>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالفترة 2</p>
+            <audio controls preload="none" src="audio/3.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="architecture" aria-labelledby="architecture-title">
+          <h3 id="architecture-title"><span class="section-number">03</span>التصميم المعماري والتحصينات</h3>
+          <p>يمتاز حصن الأسود بتخطيط يجمع بين الوظيفة الدفاعية والخصائص المعمارية العُمانية التقليدية. ويضم الحصن أربعة أبراج، هي:</p>
+          <ul class="tower-list" aria-label="أبراج حصن الأسود">
+            <li>برج الريح</li><li>برج المراقبة والمطامر</li><li>برج الصباح</li><li>برج سليمان</li>
+          </ul>
+          <p>وكانت هذه الأبراج تؤدي دوراً مهماً في مراقبة المنطقة المحيطة والدفاع عن الحصن.</p>
+          <p>ويقع الحصن على نتوء صخري مرتفع، وتحيط به بساتين النخيل، كما توجد أمامه مصطبة وطريق متعرج يؤدي إلى المدخل المقنطر. وتتميز أجزاء من أسواره ببنائها من الحجر وقوالب اللبن، بينما شُيد السور الشمالي الشرقي بالحجارة والجلاميد بسبب طبيعة الموقع شديدة الانحدار. أما الأجزاء العلوية من بعض الأسوار فتظهر فيها قوالب طينية مخروطية الشكل موضوعة بصورة رأسية، وهي من السمات التي تعكس أساليب البناء التقليدية في المنطقة.</p>
+          <p>وتساعد الأبعاد المنشورة للحصن على تصور تخطيطه؛ فالمنطقة الأمامية المنخفضة مستطيلة، بينما تتصل بها الأسوار والأبراج على مستويات مختلفة من النتوء الصخري.</p>
+          <table class="dimensions-table">
+            <thead><tr><th scope="col">العنصر المعماري</th><th scope="col">البعد المنشور</th></tr></thead>
+            <tbody>
+              <tr><td>الواجهة والسور الشمالي الغربي</td><td>نحو 33 متراً</td></tr>
+              <tr><td>قطر البرج الغربي</td><td>نحو 6.5 أمتار</td></tr>
+              <tr><td>قطر البرج الشمالي</td><td>نحو 8 أمتار</td></tr>
+              <tr><td>البرج الركني الشرقي والسور الشمالي الشرقي</td><td>قطر البرج نحو 7 أمتار، وطول السور نحو 25 متراً</td></tr>
+              <tr><td>المساحة الأمامية المنخفضة</td><td>نحو 24 × 21 متراً</td></tr>
+            </tbody>
+          </table>
+          <p>وتوضح هذه العناصر أن تصميم الحصن استفاد من طبيعة الموقع الصخرية ومن المواد المحلية، وجمع بين القوة الدفاعية والقدرة على الاستمرار في البيئة العُمانية.</p>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالفترة 3</p>
+            <audio controls preload="none" src="audio/4.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="significance" aria-labelledby="significance-title">
+          <h3 id="significance-title"><span class="section-number">04</span>أهمية الحصن التاريخية والسياحية</h3>
+          <p>تنبع أهمية حصن الأسود من ارتباطه بتاريخ مقنيات وبالدولة النبهانية، ومن كونه شاهداً على تطور العمارة الدفاعية العُمانية في القرن السادس عشر الميلادي. كما يساعد موقعه وتخطيطه وأبراجه وأسواره في التعرف على الأساليب التي اتبعها العمانيون في اختيار مواقع التحصينات والاستفادة من التضاريس الطبيعية.</p>
+          <p>ويمثل الحصن اليوم معلماً تراثياً مهماً في محافظة الظاهرة، وتبرز قيمته في كونه جزءاً من التراث العمراني الذي يعرّف الأجيال بتاريخ عُمان ويجذب المهتمين بالمعالم التاريخية إلى بلدة مقنيات.</p>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالفترة 4</p>
+            <audio controls preload="none" src="audio/5.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="conclusion" aria-labelledby="conclusion-title">
+          <h2 id="conclusion-title">الخاتمة</h2>
+          <p>في الختام، يُعد حصن الأسود في بلدة مقنيات من الشواهد المهمة على تاريخ عُمان وتراثها المعماري، فقد ارتبط بالدولة النبهانية وبالدور التاريخي الذي أدته مقنيات في تلك الفترة. كما يكشف موقع الحصن وأبراجه وأسواره عن معرفة العمانيين بأساليب التحصين واستغلال طبيعة المكان والمواد المحلية في البناء.</p>
+          <p>ويؤكد هذا المعلم أهمية المحافظة على القلاع والحصون العُمانية ودراستها؛ لأنها لا تمثل مباني قديمة فحسب، بل تعد سجلاً حياً لتاريخ المجتمع العُماني وتطوره السياسي والعمراني والدفاعي.</p>
+          <div class="audio-block">
+            <p class="audio-hint">الصوت الخاص بالخاتمة</p>
+            <audio controls preload="none" src="audio/6.mp3"></audio>
+          </div>
+        </section>
+
+        <section id="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">المراجع</h2>
+          <ol class="sources">
+            <li>البوابة الإعلامية لسلطنة عُمان</li>
+            <li>محافظة الظاهرة</li>
+            <li>صحيفة عُمان</li>
+          </ol>
+        </section>
+      </article>
+
+      <aside class="side-rail" aria-label="أدوات التقرير">
+        <nav class="rail-block" aria-label="فهرس التقرير">
+          <h2 class="rail-title">في هذا التقرير</h2>
+          <div class="toc">
+            <a href="#introduction">المقدمة</a>
+            <a href="#location">الموقع والأهمية</a>
+            <a href="#history">التاريخ والتسمية</a>
+            <a href="#architecture">التصميم والتحصينات</a>
+            <a href="#significance">الأهمية</a>
+            <a href="#conclusion">الخاتمة</a>
+            <a href="#sources">المراجع</a>
+          </div>
+        </nav>
+        <div class="rail-block">
+          <h2 class="rail-title">نسخة ورقية</h2>
+          <p class="rail-meta">تنسيق جاهز للطباعة على ورق A4، مع إخفاء أدوات التنقل تلقائياً.</p>
+          <button class="print-button" type="button" onclick="window.print()" aria-label="طباعة التقرير">طباعة التقرير</button>
+        </div>
+      </aside>
+    </div>
+    <footer>إعداد الطالب عبدالله بن سالم بن سيف السليماني · الصف 12/1</footer>
+  </main>
+
+  <script>
+    const sections = [...document.querySelectorAll(".article section[id]")];
+    const links = [...document.querySelectorAll(".toc a")];
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        for (const link of links) {
+          if (link.hash === `#${entry.target.id}`) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        }
+      }
+    }, { rootMargin: "-15% 0px -70% 0px" });
+    sections.forEach((section) => observer.observe(section));
+
+    const designerDialog = document.getElementById("designer-dialog");
+    document.getElementById("designer-open").addEventListener("click", () => designerDialog.showModal());
+    document.getElementById("designer-close").addEventListener("click", () => designerDialog.close());
+    designerDialog.addEventListener("click", (event) => {
+      if (event.target === designerDialog) designerDialog.close();
+    });
+  </script>
+</body>
+</html>
